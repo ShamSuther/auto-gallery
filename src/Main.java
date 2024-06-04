@@ -76,7 +76,7 @@ public class Main {
                 }
 
                 System.out.println();
-                System.out.println("\nTodaloo!\n");
+                System.out.println("\ntoodle-oo!\n");
                 input.close();
             }
 
@@ -93,51 +93,99 @@ public class Main {
                         choice = take_input();
                         break;
                     case 2:
-                        employee[employees_counter] = new Employees();
-                        employee[employees_counter].set_details();
-                        employees_counter++;
-                        System.out.println();
-                        System.out.println("2) Add New Employee");
-                        System.out.println("9) Go back to Main Menu");
-                        choice = take_input();
+                        if (showroom_counter > 0) {
+                            employee[employees_counter] = new Employees();
+                            employee[employees_counter].set_details();
+                            employees_counter++;
+                            if (does_showroom_exist(showroom, showroom_counter, employee[employees_counter])) {
+                                employees_counter++;
+                            } else {
+                                employees_counter--;
+                            }
+                            System.out.println();
+                            System.out.println("2) Add New Employee");
+                            System.out.println("9) Go back to Main Menu");
+                            choice = take_input();
+                        } else {
+                            System.out.println();
+                            System.out.println("+-----------------------------+");
+                            System.out.println("! Please add a showroom first !");
+                            System.out.println("+-----------------------------+");
+                            choice = 9;
+                        }
                         break;
                     case 3:
-                        car[car_counter] = new Cars();
-                        car[car_counter].set_details();
-                        car_counter++;
-                        System.out.println();
-                        System.out.println("3) Add New Car");
-                        System.out.println("9) Go back to Main Menu");
-                        choice = take_input();
+                        if (showroom_counter > 0) {
+                            car[car_counter] = new Cars();
+                            car[car_counter].set_details();
+                            if (does_showroom_exist(showroom, showroom_counter, car[car_counter])) {
+                                car_counter++;
+                            } else {
+                                car_counter--;
+                            }
+                            System.out.println();
+                            System.out.println("3) Add New Car");
+                            System.out.println("9) Go back to Main Menu");
+                            choice = take_input();
+                        } else {
+                            System.out.println();
+                            System.out.println("+-----------------------------+");
+                            System.out.println("! Please add a showroom first !");
+                            System.out.println("+-----------------------------+");
+                            choice = 9;
+                        }
                         break;
                     case 4:
-                        for (int i = 0; i < showroom_counter; i++) {
-                            showroom[i].get_details();
+                        if (showroom_counter > 0) {
+                            System.out.println();
+                            for (int i = 0; i < showroom_counter; i++) {
+                                System.out.println("#" + i);
+                                System.out.println();
+                                showroom[i].get_details();
+                            }
+                            System.out.println();
+                            choice = 9;
+                        } else {
+                            System.out.println();
+                            System.out.println("+-----------------------------+");
+                            System.out.println("! Please add a showroom first !");
+                            System.out.println("+-----------------------------+");
+                            choice = 9;
                         }
-                        System.out.println();
-                        System.out.println("9) Go back to Main Menu");
-                        System.out.println("0) EXIT");
-                        choice = take_input();
                         break;
                     case 5:
-                        for (int i = 0; i < employees_counter; i++) {
-                            employee[i].get_details();
+                        if (employees_counter > 0) {
                             System.out.println();
+                            for (int i = 0; i < employees_counter; i++) {
+                                employee[i].get_details();
+                                System.out.println();
+                            }
+                            System.out.println();
+                            choice = 9;
+                        } else {
+                            System.out.println();
+                            System.out.println("+----------------------------+");
+                            System.out.println("! Please add employees first !");
+                            System.out.println("+----------------------------+");
+                            choice = 9;
                         }
-                        System.out.println();
-                        System.out.println("9) Go back to Main Menu");
-                        System.out.println("0) EXIT");
-                        choice = take_input();
                         break;
                     case 6:
-                        for (int i = 0; i < car_counter; i++) {
-                            car[i].get_details();
+                        if (car_counter > 0) {
                             System.out.println();
+                            for (int i = 0; i < car_counter; i++) {
+                                car[i].get_details();
+                                System.out.println();
+                            }
+                            System.out.println();
+                            choice = 9;
+                        } else {
+                            System.out.println();
+                            System.out.println("+-----------------------+");
+                            System.out.println("! Please add cars first !");
+                            System.out.println("+-----------------------+");
+                            choice = 9;
                         }
-                        System.out.println();
-                        System.out.println("9) Go back to Main Menu");
-                        System.out.println("0) EXIT");
-                        choice = take_input();
                         break;
                     default:
                         System.out.println("ENTER VALID CHOICE: ");
@@ -150,9 +198,42 @@ public class Main {
 
     // utility function
 
+    // take user input
+
     public static int take_input() {
         System.out.println();
         System.out.print("-- Enter your choice: ");
         return input.nextInt();
+    }
+
+    // check showroom existence
+
+    public static boolean does_showroom_exist(Showroom[] showrooms, int showroom_counter, Object obj) {
+        boolean showroomExists = false;
+        String sid;
+
+        if (obj instanceof Employees) {
+            Employees employee = (Employees) obj;
+            for (int i = 0; i < showroom_counter; i++) {
+                if (showrooms[i].showroom_name.equals(employee.showroom_name)) {
+                    showroomExists = true;
+                    sid = showrooms[i].get_showroom_id();
+                    employee.set_showroom_id(sid);
+                    break;
+                }
+            }
+        } else if (obj instanceof Cars) {
+            Cars car = (Cars) obj;
+            for (int i = 0; i < showroom_counter; i++) {
+                if (showrooms[i].showroom_name.equals(car.showroom_name)) {
+                    showroomExists = true;
+                    sid = showrooms[i].get_showroom_id();
+                    car.set_showroom_id(sid);
+                    break;
+                }
+            }
+        }
+
+        return showroomExists;
     }
 }

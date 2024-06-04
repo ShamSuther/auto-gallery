@@ -1,10 +1,15 @@
 import java.util.UUID;
 
 public class Employees extends Showroom {
+    private String showroom_id;
     private String emp_id;
     private int emp_age;
     String emp_name;
     String emp_department;
+
+    public void set_showroom_id(String sid) {
+        this.showroom_id = sid;
+    }
 
     @Override
     public void get_details() {
@@ -20,6 +25,7 @@ public class Employees extends Showroom {
     public void set_details() {
         UUID uuid = UUID.randomUUID();
         emp_id = String.valueOf(uuid).substring(0, 5);
+        System.out.println();
         System.out.println("- ENTER EMPLOYEE DETAILS");
         System.out.println();
         System.out.print("Name: ");
@@ -31,6 +37,5 @@ public class Employees extends Showroom {
         emp_department = input.nextLine();
         System.out.print("Showroom Name: ");
         showroom_name = input.nextLine();
-        input.nextLine();
     }
 }

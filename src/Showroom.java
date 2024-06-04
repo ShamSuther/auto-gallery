@@ -6,7 +6,11 @@ public class Showroom implements utility {
     String showroom_address;
     String manager_name;
     int total_cars_in_stock = 0;
-    private int total_employees;
+    private int total_employees = 0;
+
+    public String get_showroom_id() {
+        return this.showroom_id;
+    }
 
     @Override
     public void get_details() {
@@ -31,10 +35,5 @@ public class Showroom implements utility {
         showroom_address = input.nextLine();
         System.out.print("Manager Name: ");
         manager_name = input.nextLine();
-        System.out.print("No. of employees: ");
-        total_employees = input.nextInt();
-        System.out.print("Cars in stock: ");
-        total_cars_in_stock = input.nextInt();
-        input.nextLine();
     }
 }

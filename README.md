@@ -4,11 +4,10 @@ Experience the future of car showroom management with AutoGallery – innovation
 
 ### Features
 
-**Showroom Management:**
-
-**Car Management:**
-
-**Employee Management:**
+- **Showroom Management:** Ability to add, view, and manage showrooms.
+- **Employee Management:** Ability to add, view, and manage employees.
+- **Car Management:** Ability to add, view, and manage cars.
+- **Data Display:** Ability to display data for showrooms, employees, and cars.
 
 ### Quick Start
 
@@ -32,7 +31,6 @@ cd autoGallery/src
 
 **Running the project:**
 
-
 ```bash
 javac -d ./class ./Main.java
 ```
@@ -40,3 +38,5 @@ javac -d ./class ./Main.java
 ```bash
 java -cp ./class Main
 ```
+
+**toodle-oo!**

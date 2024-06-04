@@ -1,6 +1,7 @@
 import java.util.UUID;
 
 public class Cars extends Showroom {
+    private String showroom_id;
     private String car_id;
     String car_name;
     String car_brand;
@@ -9,6 +10,10 @@ public class Cars extends Showroom {
     int car_price;
     String car_type;
     String car_transmission;
+
+    public void set_showroom_id(String sid) {
+        this.showroom_id = sid;
+    }
 
     @Override
     public void get_details() {
