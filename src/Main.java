@@ -3,14 +3,23 @@ import java.lang.*;
 
 // main interface
 interface utility {
+    Scanner input = new Scanner(System.in);
+
     public void get_details();
 
     public void set_details();
 }
 
+/*
+ * The Main class contains the primary logic for the AutoGallery application.
+ * It displays a menu to the user and allows them to add and view showrooms,
+ * employees, and cars.
+ */
+
 public class Main {
     // constants
     public static final String APP_NAME = "AutoGallery";
+    public static Scanner input = new Scanner(System.in);
 
     // main menu
     static void main_menu() {
@@ -27,11 +36,15 @@ public class Main {
         System.out.println();
         System.out.println("PRESS 0 TO EXIT PROGRAM.");
         System.out.println();
-        System.out.print("Enter your choice: ");
+        System.out.print("-- Enter your choice: ");
     }
 
+    /**
+     * The main method that starts the application.
+     * It manages user input and directs the flow of the application based on user
+     * choices.
+     */
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         Showroom showroom[] = new Showroom[5];
         Employees employee[] = new Employees[25];
         Cars car[] = new Cars[5];
@@ -44,16 +57,16 @@ public class Main {
         // keep the loop running until exit 0.
 
         while (choice != 0) {
-            main_menu();
+            Main.main_menu();
             choice = input.nextInt();
 
             // exit
-            if(choice == 0){
+            if (choice == 0) {
                 System.out.println();
                 System.out.print("Exiting");
 
                 // delay the exit
-                for(int i = 0; i < 3;i++){
+                for (int i = 0; i < 3; i++) {
                     try {
                         Thread.sleep(200);
                     } catch (InterruptedException e) {
@@ -75,60 +88,56 @@ public class Main {
                         showroom[showroom_counter].set_details();
                         showroom_counter++;
                         System.out.println();
-                        System.out.println("1].ADD NEW SHOWROOM");
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        choice = input.nextInt();
+                        System.out.println("1) Add New Showroom");
+                        System.out.println("9) Go back to Main Menu");
+                        choice = take_input();
                         break;
                     case 2:
                         employee[employees_counter] = new Employees();
                         employee[employees_counter].set_details();
                         employees_counter++;
                         System.out.println();
-                        System.out.println("2].ADD NEW EMPLOYEE");
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        choice = input.nextInt();
+                        System.out.println("2) Add New Employee");
+                        System.out.println("9) Go back to Main Menu");
+                        choice = take_input();
                         break;
                     case 3:
                         car[car_counter] = new Cars();
                         car[car_counter].set_details();
                         car_counter++;
                         System.out.println();
-                        System.out.println("3].ADD NEW CAR");
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        choice = input.nextInt();
+                        System.out.println("3) Add New Car");
+                        System.out.println("9) Go back to Main Menu");
+                        choice = take_input();
                         break;
                     case 4:
                         for (int i = 0; i < showroom_counter; i++) {
                             showroom[i].get_details();
-                            System.out.println();
-                            System.out.println();
                         }
                         System.out.println();
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        System.out.println("0].EXIT");
-                        choice = input.nextInt();
+                        System.out.println("9) Go back to Main Menu");
+                        System.out.println("0) EXIT");
+                        choice = take_input();
                         break;
                     case 5:
                         for (int i = 0; i < employees_counter; i++) {
                             employee[i].get_details();
                             System.out.println();
-                            System.out.println();
                         }
                         System.out.println();
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        System.out.println("0].EXIT");
-                        choice = input.nextInt();
+                        System.out.println("9) Go back to Main Menu");
+                        System.out.println("0) EXIT");
+                        choice = take_input();
                         break;
                     case 6:
                         for (int i = 0; i < car_counter; i++) {
                             car[i].get_details();
                             System.out.println();
-                            System.out.println();
                         }
                         System.out.println();
-                        System.out.println("9].GO BACK TO MAIN MENU");
-                        System.out.println("0].EXIT");
-                        choice = input.nextInt();
+                        System.out.println("9) Go back to Main Menu");
+                        System.out.println("0) EXIT");
+                        choice = take_input();
                         break;
                     default:
                         System.out.println("ENTER VALID CHOICE: ");
@@ -137,5 +146,13 @@ public class Main {
             }
         }
 
+    }
+
+    // utility function
+
+    public static int take_input() {
+        System.out.println();
+        System.out.print("-- Enter your choice: ");
+        return input.nextInt();
     }
 }

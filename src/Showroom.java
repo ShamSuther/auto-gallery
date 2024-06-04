@@ -1,36 +1,40 @@
-import java.sql.SQLOutput;
-import java.util.Scanner;
-public class Showroom implements utility{
+import java.util.UUID;
+
+public class Showroom implements utility {
+    private String showroom_id;
     String showroom_name;
     String showroom_address;
-    int total_employees;
-    int total_cars_in_stock = 0;
     String manager_name;
+    int total_cars_in_stock = 0;
+    private int total_employees;
 
     @Override
     public void get_details() {
-        System.out.println("Showroom Name: "+showroom_name);
-        System.out.println("Showroom Address: "+showroom_address);
-        System.out.println("Manager Name: "+manager_name);
-        System.out.println("Total Employees: "+total_employees);
-        System.out.println("Total Cars In Stock: "+total_cars_in_stock);
-
+        System.out.println("Showroom Name: " + showroom_name);
+        System.out.println("Showroom Address: " + showroom_address);
+        System.out.println("Manager: " + manager_name);
+        System.out.println("Total Employees: " + total_employees);
+        System.out.println("Cars in Stock: " + total_cars_in_stock);
     }
+
     @Override
-    public void set_details(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("======================= *** ENTER SHOWROOM DETAILS *** =======================");
+    public void set_details() {
+        UUID uuid = UUID.randomUUID();
+        String temp = String.valueOf(uuid).substring(0, 9);
+        showroom_id = String.format("s%s", temp);
         System.out.println();
-        System.out.print("SHOWROOM NAME: ");
-        showroom_name = scanner.nextLine();
-        System.out.print(("SHOWROOM ADDRESS: "));
-        showroom_address = scanner.nextLine();
-        System.out.print("MANAGER NAME: ");
-        manager_name = scanner.nextLine();
-        System.out.print("TOTAL NO OF EMPLOYEES: ");
-        total_employees = scanner.nextInt();
-        System.out.print("TOTAL CARS IN STOCK: ");
-        total_cars_in_stock = scanner.nextInt();
-        scanner.close();
+        System.out.println("- ENTER SHOWROOM DETAILS");
+        System.out.println();
+        System.out.print("Showroom Name: ");
+        showroom_name = input.nextLine();
+        System.out.print("Showroom Address: ");
+        showroom_address = input.nextLine();
+        System.out.print("Manager Name: ");
+        manager_name = input.nextLine();
+        System.out.print("No. of employees: ");
+        total_employees = input.nextInt();
+        System.out.print("Cars in stock: ");
+        total_cars_in_stock = input.nextInt();
+        input.nextLine();
     }
 }

@@ -1,7 +1,9 @@
-import java.util.Scanner;
+import java.util.UUID;
 
-public class Cars extends Showroom implements utility{
+public class Cars extends Showroom {
+    private String car_id;
     String car_name;
+    String car_brand;
     String car_color;
     String car_fuel_type;
     int car_price;
@@ -9,33 +11,39 @@ public class Cars extends Showroom implements utility{
     String car_transmission;
 
     @Override
-    public void get_details(){
-        System.out.println("NAME: "+car_name);
-        System.out.println("COLOR: "+car_color);
-        System.out.println("FUEL TYPE: "+car_fuel_type);
-        System.out.println("PRICE: "+car_price);
-        System.out.println("CAR TYPE: "+car_type);
-        System.out.println("TRANSMISSION: "+car_transmission);
+    public void get_details() {
+        System.out.println("Model: " + car_name);
+        System.out.println("Brand: " + car_brand);
+        System.out.println("Color: " + car_color);
+        System.out.println("Fuel Type: " + car_fuel_type);
+        System.out.println("Price: $" + car_price);
+        System.out.println("Car type: " + car_type);
+        System.out.println("Transmission: " + car_transmission);
     }
 
     @Override
-    public void set_details(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("======================= *** ENTER CAR DETAILS *** =======================");
+    public void set_details() {
+        UUID uuid = UUID.randomUUID();
+        String temp = String.valueOf(uuid).substring(0, 3);
+        car_id = String.format("car_%s", temp);
+        System.out.println("- ENTER CAR DETAILS");
         System.out.println();
-        System.out.print("CAR NAME: ");
-        car_name = sc.nextLine();
-        System.out.print(("CAR COLOR: "));
-        car_color = sc.nextLine();
-        System.out.print("CAR FUEL TYPE(PETROL/DIESEL): ");
-        car_fuel_type = sc.nextLine();
-        System.out.print("CAR PRICE: ");
-        car_price = sc.nextInt();
-        sc.nextLine();
-        System.out.print("CAR TYPE(SEDAN/SUV/HATCHBACK): ");
-        car_type = sc.nextLine();
-        System.out.print("TRANSMISSION TYPE(AUTOMATIC/MANUAL): ");
-        car_transmission = sc.nextLine();
+        System.out.print("Model: ");
+        car_name = input.nextLine();
+        System.out.print("Brand: ");
+        car_name = input.nextLine();
+        System.out.print("Color: ");
+        car_color = input.nextLine();
+        System.out.print("Fuel type: ");
+        car_fuel_type = input.nextLine();
+        System.out.print("Price: ");
+        car_price = input.nextInt();
+        input.nextLine();
+        System.out.print("Car type (sedan/SUV/HatchBack): ");
+        car_type = input.nextLine();
+        System.out.print("Transmission type: ");
+        car_transmission = input.nextLine();
         total_cars_in_stock++;
+        input.nextLine();
     }
 }

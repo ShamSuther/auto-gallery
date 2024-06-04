@@ -1,18 +1,8 @@
-<div align="center">
-  <h1 align="left" style="font-weight: 600;">AutoGallery</h1>
-</div>
-
-## <a name="table">Table of Contents</a>
-
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Quick Start](#quick-start)
-
-## <a name="introduction">Introduction</a>
+# AutoGallery
 
 Experience the future of car showroom management with AutoGallery – innovation, efficiency, and elegance combined built with Java specially for showcasing the OOP concepts.
 
-## <a name="features">Features</a>
+### Features
 
 **Showroom Management:**
 
@@ -20,24 +10,28 @@ Experience the future of car showroom management with AutoGallery – innovation
 
 **Employee Management:**
 
-## <a name="quick-start">Quick Start</a>
+### Quick Start
 
 Follow these steps to set up the project locally on your machine.
 
-**Prerequisites**
+**Prerequisites:**
 
 Make sure you have the following installed on your machine:
 
 - [JDK](https://www.oracle.com/java/technologies/downloads/)
+- [VSCode](https://code.visualstudio.com/) (Optional)
 
-**Running the Project**
+or any other code editor or IDE.
 
-**Cloning the Repository**
+**Cloning the Repository:**
 
 ```bash
 git clone https://github.com/ShamSuther/auto-gallery
 cd autoGallery/src
 ```
+
+**Running the project:**
+
 
 ```bash
 javac -d ./class ./Main.java
@@ -46,5 +40,3 @@ javac -d ./class ./Main.java
 ```bash
 java -cp ./class Main
 ```
-
-Toddles!
