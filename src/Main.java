@@ -119,7 +119,6 @@ public class Main {
                             car[car_counter].set_details();
                             if (does_showroom_exist(showroom, showroom_counter, car[car_counter])) {
                                 car_counter++;
-                                System.out.println(car_counter);
                             } else {
                                 car_counter--;
                             }

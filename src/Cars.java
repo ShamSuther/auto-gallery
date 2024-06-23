@@ -32,6 +32,7 @@ public class Cars extends Showroom {
         UUID uuid = UUID.randomUUID();
         String temp = String.valueOf(uuid).substring(0, 3);
         car_id = String.format("car_%s", temp);
+        System.out.println();
         System.out.println("- ENTER CAR DETAILS");
         System.out.println();
         System.out.print("Model: ");
