@@ -10,7 +10,8 @@ public class Cars extends Showroom {
     int car_price;
     String car_type;
     String car_transmission;
-
+    String showroom_name;
+    
     public void set_showroom_id(String sid) {
         this.showroom_id = sid;
     }
@@ -36,7 +37,7 @@ public class Cars extends Showroom {
         System.out.print("Model: ");
         car_name = input.nextLine();
         System.out.print("Brand: ");
-        car_name = input.nextLine();
+        car_brand = input.nextLine();
         System.out.print("Color: ");
         car_color = input.nextLine();
         System.out.print("Fuel type: ");
@@ -48,7 +49,8 @@ public class Cars extends Showroom {
         car_type = input.nextLine();
         System.out.print("Transmission type: ");
         car_transmission = input.nextLine();
+        System.out.print("Showroom name: ");
+        showroom_name = input.nextLine();
         total_cars_in_stock++;
-        input.nextLine();
     }
 }

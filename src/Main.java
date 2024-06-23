@@ -119,6 +119,7 @@ public class Main {
                             car[car_counter].set_details();
                             if (does_showroom_exist(showroom, showroom_counter, car[car_counter])) {
                                 car_counter++;
+                                System.out.println(car_counter);
                             } else {
                                 car_counter--;
                             }
@@ -176,7 +177,7 @@ public class Main {
                         }
                         break;
                     case 6:
-                        if (car_counter > 0) {
+                        if (car_counter >= 1) {
                             System.out.println();
                             for (int i = 0; i < car_counter; i++) {
                                 System.out.println("#" + (i + 1));
@@ -186,7 +187,6 @@ public class Main {
                                     System.out.println();
                                 }
                             }
-                            System.out.println();
                             choice = 9;
                         } else {
                             System.out.println();
