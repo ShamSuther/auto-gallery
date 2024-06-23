@@ -93,10 +93,9 @@ public class Main {
                         choice = take_input();
                         break;
                     case 2:
-                        if (showroom_counter > 0) {
+                        if (showroom_counter >= 1) {
                             employee[employees_counter] = new Employees();
                             employee[employees_counter].set_details();
-                            employees_counter++;
                             if (does_showroom_exist(showroom, showroom_counter, employee[employees_counter])) {
                                 employees_counter++;
                             } else {
@@ -139,9 +138,12 @@ public class Main {
                         if (showroom_counter > 0) {
                             System.out.println();
                             for (int i = 0; i < showroom_counter; i++) {
-                                System.out.println("#" + i);
+                                System.out.println("#" + (i + 1));
                                 System.out.println();
                                 showroom[i].get_details();
+                                if (i != showroom_counter - 1) {
+                                    System.out.println();
+                                }
                             }
                             System.out.println();
                             choice = 9;
@@ -154,13 +156,16 @@ public class Main {
                         }
                         break;
                     case 5:
-                        if (employees_counter > 0) {
+                        if (employees_counter >= 1) {
                             System.out.println();
                             for (int i = 0; i < employees_counter; i++) {
-                                employee[i].get_details();
+                                System.out.println("#" + (i + 1));
                                 System.out.println();
+                                employee[i].get_details();
+                                if (i != employees_counter - 1) {
+                                    System.out.println();
+                                }
                             }
-                            System.out.println();
                             choice = 9;
                         } else {
                             System.out.println();
@@ -174,8 +179,12 @@ public class Main {
                         if (car_counter > 0) {
                             System.out.println();
                             for (int i = 0; i < car_counter; i++) {
-                                car[i].get_details();
+                                System.out.println("#" + (i + 1));
                                 System.out.println();
+                                car[i].get_details();
+                                if (i != car_counter - 1) {
+                                    System.out.println();
+                                }
                             }
                             System.out.println();
                             choice = 9;

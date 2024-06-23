@@ -17,7 +17,7 @@ Follow these steps to set up the project locally on your machine.
 
 Make sure you have the following installed on your machine:
 
-- [JDK](https://www.oracle.com/java/technologies/downloads/)
+- [JDK](https://www.oracle.com/java/technologies/downloads/) 
 - [VSCode](https://code.visualstudio.com/) (Optional)
 
 or any other code editor or IDE.
